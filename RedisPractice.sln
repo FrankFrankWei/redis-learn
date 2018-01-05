@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisPractice", "RedisPractice\RedisPractice.csproj", "{9C2E52B8-1D71-4541-BCC6-F06483B5FBB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{F93BFD07-4978-4488-A122-D3AF36861790}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoteDemo", "VoteDemo\VoteDemo.csproj", "{4AA7862B-70DE-4B68-A37E-E447A58ED830}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RedisConfiguration", "RedisConfiguration", "{891588C7-AC6B-40DC-B9EF-D546095EDA72}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C2E52B8-1D71-4541-BCC6-F06483B5FBB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C2E52B8-1D71-4541-BCC6-F06483B5FBB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C2E52B8-1D71-4541-BCC6-F06483B5FBB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C2E52B8-1D71-4541-BCC6-F06483B5FBB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F93BFD07-4978-4488-A122-D3AF36861790}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F93BFD07-4978-4488-A122-D3AF36861790}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F93BFD07-4978-4488-A122-D3AF36861790}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F93BFD07-4978-4488-A122-D3AF36861790}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AA7862B-70DE-4B68-A37E-E447A58ED830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AA7862B-70DE-4B68-A37E-E447A58ED830}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AA7862B-70DE-4B68-A37E-E447A58ED830}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AA7862B-70DE-4B68-A37E-E447A58ED830}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "Vote";
+}
+
+<h2>Vote</h2>
+<script src="~/Scripts/vue.js"></script>
+
+<hr />
+<div id="redis" class="row">
+    <div id="vote-panel" class="col-lg-2 panel">
+        <h5>Do you like Redis</h5>
+        <div id="vote-group">
+            <p><button class="btn btn-primary btn-block" value="Y" v-on:click="doVote('Y')">Yes</button></p>
+            <p><button class="btn btn-primary btn-block" value="N" v-on:click="doVote('N')">No</button></p>
+            <p><button class="btn btn-primary btn-block" value="U" v-on:click="doVote('U')">Undecided</button></p>
+        </div>
+
+    </div>
+
+    <div id="vote-results" class="col-lg-8 panel">
+        <h5>Results </h5>
+        <p><span class="label label-default"> Yes</span>&nbsp;&nbsp;{{vote.yesFlag}}</p>
+        <p><span class="label label-default"> No</span>&nbsp;&nbsp;{{vote.noFlag}}</p>
+        <p><span class="label label-default"> Undecided</span>&nbsp;&nbsp;{{vote.undecidedFlag}}</p>
+
+        <p>
+            <span class="label label-default"> Total Votes Cast </span>&nbsp;&nbsp;{{totalVotes}}
+        </p>
+
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        new Vue({
+            el: '#vote-results',
+            data: {
+                vote: {
+                    yesFlag: 0,
+                    noFlag: 0,
+                    undecidedFlag: 0
+                }
+            },
+            computed: {
+                totalVotes: function () {
+                    return this.vote.yesFlag + this.vote.noFlag + this.vote.undecidedFlag
+                }
+            },
+            created: function () {
+
+            },
+            methods: {
+                doVote: function (value) {
+                    var vm = this;// ref to instance
+                    var callback = function (data) {
+                        vm.vote = data
+                    };
+
+                    $.ajax({
+                        url: '/Redis/Vote',
+                        datatype: 'json',
+                        data: value,
+                        type: 'post',
+                        success: callback,
+                        error: function () {
+                            alert('some error occurs.');
+                        }
+                    })
+                }
+            }
+        })
+    </script>
+}

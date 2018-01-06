@@ -34,7 +34,7 @@
 @section scripts{
     <script type="text/javascript">
         new Vue({
-            el: '#vote-results',
+            el: '#redis',
             data: {
                 vote: {
                     yesFlag: 0,
@@ -48,19 +48,35 @@
                 }
             },
             created: function () {
-
+                this.getVotes();
             },
             methods: {
-                doVote: function (value) {
+                getVotes: function(){
                     var vm = this;// ref to instance
                     var callback = function (data) {
                         vm.vote = data
                     };
 
                     $.ajax({
-                        url: '/Redis/Vote',
+                        url: '/Redis/GetVote',
                         datatype: 'json',
-                        data: value,
+                        type: 'get',
+                        success: callback,
+                        error: function () {
+                            alert('some error occurs.');
+                        }
+                    })
+                },
+                doVote: function (value) {
+                    var vm = this;// ref to instance
+                    var callback = function (data) {
+                        vm.getVotes();
+                    };
+
+                    $.ajax({
+                        url: '/Redis/DoVote',
+                        datatype: 'json',
+                        data: { voteValue: value },
                         type: 'post',
                         success: callback,
                         error: function () {
